@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+
+    <meta name="description" content="Tenentia Four Java: Experts in Java Modernization (Spring Boot, Quarkus), DevOps (K8s, Ansible), webMethods, and Business AI Integration. Serving SMEs and Enterprises since 2012.">
+    <meta name="keywords" content="Java, Spring Boot, Quarkus, Kubernetes, DevOps, webMethods, AI Integration, Software Architecture, Madrid, Legacy Migration">
+    <meta name="author" content="Tenentia Four Java">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tenentia-4j.com/">
+    <meta property="og:title" content="Tenentia Four Java | Code, Deploy, Scale">
+    <meta property="og:description" content="Transforming legacy systems into Cloud Native powerhouses. Java, K8s, and AI experts based in Madrid.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Tenentia Four Java | Enterprise Software Engineering">
+    <meta name="twitter:description" content="Specialists in J2EE to Microservices migration, DevOps automation, and AI business integration.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T4J | Java & DevOps Experts</title>
+
+    
+    
+    
+
+    
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="canonical" href="https://tenentia-4j.com/">
+
+    
+
+    <style>
+        /* --- THEME MANAGEMENT (LIGHT / DARK) --- */
+        :root {
+            /* Brand Colors */
+            --brand-dark: #0d1b2a;
+            --accent-java: #f89820;
+            --accent-k8s: #326ce5;
+            --accent-node: #6cc24a; /* Node.js Green */
+            
+            /* Dynamic Variables (Default Light Theme) */
+            --bg-body: #ffffff;
+            --text-main: #333333;
+            --text-muted: #6c757d;
+            --bg-section: #f8f9fa;
+            --bg-tech-strip: #1b263b;
+            --card-bg: #ffffff;
+            --card-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            --nav-bg: #0d1b2a;
+            
+            /* Footer (Always dark, text light) */
+            --footer-bg: #0b1622;
+            --footer-text-main: #ffffff;
+            --footer-text-sub: #b0b3b8; /* Light silver for readability */
+        }
+
+        [data-theme="dark"] {
+            /* Dynamic Variables (Dark Theme) */
+            --bg-body: #0d1b2a;
+            --text-main: #e0e1dd;
+            --text-muted: #aab0b7;
+            --bg-section: #16243d;
+            --bg-tech-strip: #050b12;
+            --card-bg: #1b263b;
+            --card-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            transition: background-color 0.3s, color 0.3s;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, .navbar-brand {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Navbar Configuration */
+        .navbar {
+            background-color: var(--nav-bg);
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .navbar-brand {
+            font-weight: 800;
+            color: white !important;
+            font-size: 1.5rem;
+        }
+        .brand-accent { color: var(--accent-java); }
+        .nav-link { color: #e0e1dd !important; transition: 0.3s; }
+        .nav-link:hover { color: var(--accent-java) !important; }
+        
+        /* Navbar Action Buttons */
+        .btn-nav-action {
+            border: 1px solid rgba(255,255,255,0.3);
+            color: #e0e1dd;
+            font-size: 0.9rem;
+            margin-left: 10px;
+            background: transparent;
+            width: 40px; 
+        }
+        .btn-nav-action:hover { border-color: var(--accent-java); color: var(--accent-java); }
+        .btn-lang { width: auto; padding: 0.375rem 0.75rem; }
+
+        /* Hero Section */
+        .hero {
+            /* Background: Tech network/globe image */
+            background: linear-gradient(rgba(13, 27, 42, 0.9), rgba(13, 27, 42, 0.7)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+        .hero h1 { font-size: 3.5rem; font-weight: 800; margin-bottom: 1.5rem; }
+        .hero-btn {
+            background-color: var(--accent-k8s);
+            color: white;
+            padding: 14px 35px;
+            border-radius: 5px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: 0.3s;
+            border: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 1rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .hero-btn:hover { background-color: #2656c1; color: white; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(50, 108, 229, 0.3); }
+
+        /* Tech Strip (Logo bar) */
+        .tech-strip {
+            background-color: var(--bg-tech-strip);
+            padding: 2rem 0;
+            color: white;
+            transition: background-color 0.3s;
+        }
+        .tech-icon { font-size: 2.5rem; margin: 10px 15px; opacity: 0.7; transition: 0.3s; display:inline-block; vertical-align: middle; }
+        .tech-icon:hover { opacity: 1; color: var(--accent-java); }
+        .tech-text { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.2rem; margin: 10px 10px; opacity: 0.8; vertical-align: middle; color: white;}
+        .tech-text:hover { opacity: 1; }
+
+        /* General Section Styles */
+        .section-padding { padding: 5rem 0; }
+        .bg-alternate { background-color: var(--bg-section); transition: background-color 0.3s; }
+
+        /* Service Cards */
+        .service-card {
+            background-color: var(--card-bg);
+            color: var(--text-main);
+            border: none;
+            box-shadow: var(--card-shadow);
+            transition: 0.3s;
+            height: 100%;
+            padding: 2rem;
+            text-align: center;
+            border-radius: 8px;
+        }
+        .service-card:hover { transform: translateY(-10px); }
+        .service-desc { color: var(--text-muted); }
+        
+        /* Icons inside cards */
+        .icon-box { font-size: 3rem; margin-bottom: 1.5rem; color: var(--accent-k8s); }
+        .java-icon { color: var(--accent-java); }
+
+        /* Footer Styling */
+        footer {
+            background-color: var(--footer-bg);
+            color: var(--footer-text-main);
+            padding: 4rem 0 2rem 0;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+        .footer-desc { color: var(--footer-text-sub) !important; font-size: 0.9rem; }
+        .footer-heading { color: white; margin-bottom: 1.5rem; font-weight: 700; }
+        
+        .contact-info p { margin-bottom: 0.8rem; color: var(--footer-text-sub); }
+        .contact-info i { width: 25px; color: var(--accent-java); }
+        .contact-info a { color: var(--footer-text-sub); text-decoration: none; transition: 0.2s;}
+        .contact-info a:hover { color: var(--accent-java); }
+        
+        .copyright { color: var(--footer-text-sub); font-size: 0.85rem; opacity: 0.8; }
+        .social-icons a { color: white; margin: 0 10px; font-size: 1.5rem; transition: 0.3s; }
+        .social-icons a:hover { color: var(--accent-java); }
+        .divider { border-top: 1px solid rgba(255,255,255,0.1); margin: 2rem 0; }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero { height: auto; padding: 5rem 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Tenentia-<span class="brand-accent">4</span>J</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="#services" data-i18n="nav_services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#stack" data-i18n="nav_stack">Tech Stack</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#team" data-i18n="nav_team">Team & AI</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact" data-i18n="nav_contact">Contact</a></li>
+                    
+                    <li class="nav-item d-flex align-items-center ms-lg-3 mt-3 mt-lg-0">
+                        <button class="btn btn-sm btn-nav-action btn-lang" onclick="toggleLanguage()">ES / EN</button>
+                        <button class="btn btn-sm btn-nav-action" onclick="toggleTheme()" id="themeBtn" aria-label="Toggle Dark Mode">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                    <h1 data-i18n="hero_title">Java & Cloud Native Engineering</h1>
+                    <p class="lead mb-4" data-i18n="hero_subtitle">Modernization specialists: From J2EE to Quarkus, Spring Native, GraalVM & Kubernetes.</p>
+                    
+                    <a href="#contact" class="hero-btn" data-i18n="hero_cta">Code, Deploy, Scale</a>
+                    
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="tech-strip text-center" id="stack">
+        <div class="container">
+            <div class="d-flex justify-content-center flex-wrap align-items-center">
+                <i class="fab fa-java tech-icon" title="Java"></i>
+                <i class="fas fa-leaf tech-icon" title="Spring Boot"></i>
+                <span class="tech-text">QUARKUS</span>
+                <span class="tech-text">GraalVM</span>
+                
+                <i class="fab fa-node-js tech-icon" title="Node.js"></i>
+                <i class="fab fa-react tech-icon" title="React"></i>
+                <i class="fab fa-vuejs tech-icon" title="Vue.js"></i>
+                <i class="fab fa-angular tech-icon" title="Angular"></i>
+
+                <span class="tech-text">KOGITO</span>
+                <span class="tech-text">CAMUNDA</span>
+                <span class="tech-text">webMethods</span>
+                
+                <i class="fab fa-docker tech-icon" title="Docker"></i>
+                <span class="tech-text">K8S</span>
+                <i class="fas fa-hat-wizard tech-icon" title="Ansible"></i> 
+            </div>
+        </div>
+    </div>
+
+    <section id="services" class="section-padding bg-alternate">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold" data-i18n="services_title">Our Capabilities</h2>
+                <div style="width: 50px; height: 3px; background: var(--accent-java); margin: 10px auto;"></div>
+            </div>
+            
+            <div class="row g-4">
+                
+                <div class="col-md-6">
+                    <div class="service-card rounded">
+                        <div class="icon-box java-icon"><i class="fab fa-java"></i></div>
+                        <h3 class="h5 fw-bold">Java Modernization</h3>
+                        <p class="service-desc small" data-i18n="service_java_desc">
+                            We drive extreme performance. Migrating J2EE to Spring Boot Native and Quarkus with GraalVM compilation. Rich UIs with Vaadin.
+                        </p>
+                        <ul class="list-unstyled text-start mt-3 ps-3 service-desc small">
+                            <li><i class="fas fa-check text-primary small me-2"></i> GraalVM & Spring Native</li>
+                            <li><i class="fas fa-check text-primary small me-2"></i> Vaadin UI</li>
+                            <li><i class="fas fa-check text-primary small me-2"></i> Legacy to Microservices</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="service-card rounded">
+                        <div class="icon-box"><i class="fas fa-cloud-upload-alt"></i></div>
+                        <h3 class="h5 fw-bold">DevOps & Kubernetes</h3>
+                        <p class="service-desc small" data-i18n="service_devops_desc">
+                            We don't just write code, we ship it. Full infrastructure automation and robust CI/CD pipelines for high-demand environments.
+                        </p>
+                        <ul class="list-unstyled text-start mt-3 ps-3 service-desc small">
+                            <li><i class="fas fa-check text-primary small me-2"></i> K8s Cluster Ops</li>
+                            <li><i class="fas fa-check text-primary small me-2"></i> Helm Charts & Ansible</li>
+                            <li><i class="fas fa-check text-primary small me-2"></i> GitOps & CI/CD</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="service-card rounded">
+                        <div class="icon-box" style="color: #d94e3b;"><i class="fas fa-network-wired"></i></div>
+                        <h3 class="h5 fw-bold">BPM & Business Automation</h3>
+                        <p class="service-desc small" data-i18n="service_bpm_desc">
+                            We orchestrate your business workflows. Integrating complex business logic using modern BPM engines like Camunda, Kogito, jBPM, and webMethods.
+                        </p>
+                        <ul class="list-unstyled text-start mt-3 ps-3 service-desc small">
+                            <li><i class="fas fa-check text-primary small me-2"></i> <strong>Kogito & jBPM</strong></li>
+                            <li><i class="fas fa-check text-primary small me-2"></i> Camunda & webMethods</li>
+                            <li><i class="fas fa-check text-primary small me-2"></i> DMN Decision Logic</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="service-card rounded">
+                        <div class="icon-box" style="color: #6cc24a;"><i class="fab fa-js"></i></div>
+                        <h3 class="h5 fw-bold">Frontend & Node.js</h3>
+                        <p class="service-desc small" data-i18n="service_node_desc">
+                            Modern Fullstack development. We build reactive interfaces (SPA/PWA) and lightweight asynchronous backends for a seamless user experience.
+                        </p>
+                        <ul class="list-unstyled text-start mt-3 ps-3 service-desc small">
+                            <li><i class="fas fa-check text-primary small me-2"></i> <strong>Node.js</strong></li>
+                            <li><i class="fas fa-check text-primary small me-2"></i> React, Vue & Angular</li>
+                            <li><i class="fas fa-check text-primary small me-2"></i> Modern APIs (REST/GraphQL)</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="https://images.unsplash.com/photo-1607799279861-4dd421887fb3?auto=format&fit=crop&w=1000&q=80" 
+                         alt="CPU and highlighted circuits" 
+                         class="img-fluid rounded shadow">
+                </div>
+                <div class="col-lg-6 ps-lg-5">
+                    <h2 class="fw-bold mb-3" data-i18n="why_title">Bridging Legacy and Cloud</h2>
+                    <p class="service-desc" data-i18n="why_desc">
+                        At Tenentia 4J we understand that a full rewrite isn't always an option. We provide the strategy to decouple critical systems without stopping business.
+                    </p>
+                    
+                    <div class="mt-4 p-3 rounded" style="background-color: rgba(50, 108, 229, 0.1); border-left: 4px solid var(--accent-k8s);">
+                        <h5 class="fw-bold mb-2 h6" data-i18n="clients_title">Multi-Sector Trust:</h5>
+                        <p class="small mb-0 service-desc" data-i18n="clients_desc">
+                            Operating <strong>since 2012</strong>, our solutions scale with your needs. From <strong>freelancers and SMEs</strong> requiring agility, to large corporations like <strong>BBVA</strong> and <strong>Telefónica</strong>.
+                        </p>
+                    </div>
+
+                    <div class="row mt-4">
+                        <div class="col-6">
+                            <h4 class="fw-bold text-primary">100%</h4>
+                            <p class="small service-desc" data-i18n="stat_1">Cloud Native Ready</p>
+                        </div>
+                        <div class="col-6">
+                            <h4 class="fw-bold text-primary">24/7</h4>
+                            <p class="small service-desc" data-i18n="stat_2">Scalable Systems</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="section-padding bg-alternate">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5 mb-4 mb-lg-0">
+                    <h2 class="fw-bold mb-3" data-i18n="team_title">Agile Team & AI Innovation</h2>
+                    <p class="service-desc" data-i18n="team_desc">
+                        We are a dynamic team staying at the technological forefront. We don't just adopt the new; we integrate it to boost results.
+                    </p>
+                    <div class="mt-4">
+                        <i class="fas fa-users tech-icon text-primary" style="font-size: 2rem;"></i>
+                        <i class="fas fa-brain tech-icon text-primary" style="font-size: 2rem;"></i>
+                        <i class="fas fa-rocket tech-icon text-primary" style="font-size: 2rem;"></i>
+                    </div>
+                </div>
+                <div class="col-lg-7 ps-lg-5">
+                    <div class="service-card rounded text-start p-4">
+                        <h4 class="fw-bold mb-3"><i class="fas fa-robot me-2 text-primary"></i> <span data-i18n="ai_title">Business AI Integration</span></h4>
+                        <p class="service-desc mb-4" data-i18n="ai_desc">
+                            We take efficiency to the next level. We help our clients integrate Artificial Intelligence directly into their business workflows and operational processes.
+                        </p>
+                        <h5 class="fw-bold mb-3" data-i18n="ai_benefits_title">Key Benefits:</h5>
+                        <ul class="list-unstyled service-desc">
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> <span data-i18n="ai_benefit_1">Intelligent CI/CD pipeline optimization.</span></li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> <span data-i18n="ai_benefit_2">Business decision automation.</span></li>
+                            <li><i class="fas fa-check-circle text-success me-2"></i> <span data-i18n="ai_benefit_3">Faster time-to-market with assured quality.</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 mb-4">
+                    <h3 class="fw-bold mb-3">Tenentia<span class="brand-accent">4</span>J</h3>
+                    <p class="footer-desc" data-i18n="footer_about">
+                        Consultancy specialized in high-performance Java architecture and deployment automation.
+                    </p>
+                    <div class="social-icons mt-3">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <h4 class="footer-heading" data-i18n="contact_title">Contact Us</h4>
+                    <div class="contact-info">
+                        <p>
+                            <i class="fas fa-map-marker-alt"></i> 
+                            <a href="https://maps.google.com/?q=Calle+Julian+Camarillo+10+28037+Madrid" target="_blank" data-i18n="contact_address">
+                                Calle Julian Camarillo 10, 28037 Madrid, Spain
+                            </a>
+                        </p>
+                        <p>
+                            <i class="fas fa-envelope"></i> 
+                            <a href="mailto:info@tenentia-4j.com">info@tenentia-4j.com</a>
+                        </p>
+                        <p>
+                            <i class="fas fa-phone-alt"></i>
+                            <a href="tel:+34917471957">+34 91 747 19 57</a>
+                        </p>
+                        <p>
+                            <i class="fas fa-mobile-alt"></i>
+                            <a href="tel:+34609064540">+34 609 064 540</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <div class="text-center">
+                <p class="copyright mb-0">&copy; 2026 Tenentia Four Java SOAD, S.L. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        /* --- Translation Dictionary --- */
+        const translations = {
+            es: {
+                nav_services: "Servicios",
+                nav_stack: "Tecnología",
+                nav_team: "Equipo & IA",
+                nav_contact: "Contacto",
+                hero_title: "Ingeniería Java & Cloud Native",
+                hero_subtitle: "Especialistas en modernización: De J2EE a Quarkus, Spring Native, GraalVM & Kubernetes.",
+                hero_cta: "Codificar, Desplegar, Escalar",
+                services_title: "Nuestras Capacidades",
+                // Service translations
+                service_java_desc: "Impulsamos el rendimiento extremo. Migramos J2EE a Spring Boot Native y Quarkus con compilación GraalVM. Interfaces gráficas avanzadas con Vaadin.",
+                service_devops_desc: "No solo escribimos código, lo desplegamos. Automatización completa de infraestructura y pipelines CI/CD robustos para entornos de alta demanda.",
+                service_bpm_desc: "Orquestamos tus procesos de negocio. Integración de lógica empresarial mediante motores BPM modernos como Camunda, Kogito, jBPM y webMethods.",
+                service_node_desc: "Desarrollo Fullstack moderno. Creamos interfaces reactivas (SPA/PWA) y backends ligeros asíncronos para una experiencia de usuario fluida.",
+                
+                why_title: "El puente entre Legacy y Cloud",
+                why_desc: "En Tenentia 4J entendemos que reescribir todo desde cero no siempre es opción. Aportamos la estrategia para desacoplar sistemas críticos sin detener el negocio.",
+                // Client translations - Fixed ** to <strong>
+                clients_title: "Confianza Multi-Sector:",
+                clients_desc: "Llevamos aportando soluciones <strong>desde 2012</strong>. Escalamiento garantizado para <strong>autónomos y PYMEs</strong> que requieren agilidad, hasta grandes corporaciones como <strong>BBVA</strong> y <strong>Telefónica</strong>.",
+
+                stat_1: "Listos para la Nube",
+                stat_2: "Sistemas Escalables",
+                
+                // Team & AI translations
+                team_title: "Equipo Ágil e Innovación con IA",
+                team_desc: "Somos un equipo dinámico en la vanguardia tecnológica. No solo adoptamos lo nuevo, lo integramos para potenciar resultados.",
+                ai_title: "Integración de IA en Negocio",
+                ai_desc: "Llevamos la eficiencia al siguiente nivel. Ayudamos a nuestros clientes a integrar Inteligencia Artificial directamente en sus flujos de negocio y procesos operativos.",
+                ai_benefits_title: "Principales Beneficios:",
+                ai_benefit_1: "Optimización inteligente de pipelines CI/CD.",
+                ai_benefit_2: "Automatización de decisiones de negocio.",
+                ai_benefit_3: "Aceleración del 'time-to-market' con calidad asegurada.",
+                
+                footer_about: "Consultoría especializada en arquitectura Java de alto rendimiento y automatización de despliegues.",
+                contact_title: "Contacto",
+                contact_address: "Calle Julian Camarillo 10, 28037 Madrid, España"
+            },
+            en: {
+                nav_services: "Services",
+                nav_stack: "Tech Stack",
+                nav_team: "Team & AI",
+                nav_contact: "Contact",
+                hero_title: "Java & Cloud Native Engineering",
+                hero_subtitle: "Modernization specialists: From J2EE to Quarkus, Spring Native, GraalVM & Kubernetes.",
+                hero_cta: "Code, Deploy, Scale",
+                services_title: "Our Capabilities",
+                // Service translations
+                service_java_desc: "We drive extreme performance. Migrating J2EE to Spring Boot Native and Quarkus with GraalVM compilation. Advanced UIs with Vaadin.",
+                service_devops_desc: "We don't just write code, we ship it. Full infrastructure automation and robust CI/CD pipelines for high-demand environments.",
+                service_bpm_desc: "We orchestrate your business workflows. Integrating complex business logic using modern BPM engines like Camunda, Kogito, jBPM, and webMethods.",
+                service_node_desc: "Modern Fullstack development. We build reactive interfaces (SPA/PWA) and lightweight asynchronous backends for a seamless user experience.",
+                
+                why_title: "Bridging Legacy and Cloud",
+                why_desc: "At Tenentia Four Java we understand that a full rewrite isn't always an option. We provide the strategy to decouple critical systems without stopping business.",
+                // Client translations - Fixed ** to <strong>
+                clients_title: "Multi-Sector Trust:",
+                clients_desc: "Operating <strong>since 2012</strong>, our solutions scale with your needs. From <strong>freelancers and SMEs</strong> requiring agility, to large corporations like <strong>BBVA</strong> and <strong>Telefónica</strong>.",
+                
+                stat_1: "Cloud Native Ready",
+                stat_2: "Scalable Systems",
+                
+                // Team & AI translations
+                team_title: "Agile Team & AI Innovation",
+                team_desc: "We are a dynamic team staying at the technological forefront. We don't just adopt the new; we integrate it to boost results.",
+                ai_title: "Business AI Integration",
+                ai_desc: "We take efficiency to the next level. We help our clients integrate Artificial Intelligence directly into their business workflows and operational processes.",
+                ai_benefits_title: "Key Benefits:",
+                ai_benefit_1: "Intelligent CI/CD pipeline optimization.",
+                ai_benefit_2: "Business decision automation.",
+                ai_benefit_3: "Faster time-to-market with assured quality.",
+                
+                footer_about: "Consultancy specialized in high-performance Java architecture and deployment automation.",
+                contact_title: "Contact Us",
+                contact_address: "Calle Julian Camarillo 10, 28037 Madrid, Spain"
+            }
+        };
+
+        let currentLang = 'en'; // Default language
+
+        // Function to update DOM elements
+        function updateDOM() {
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[currentLang][key]) {
+                    // Check if the string contains HTML (for bold tags)
+                    if(translations[currentLang][key].includes('<')) {
+                        element.innerHTML = translations[currentLang][key];
+                    } else {
+                        element.innerText = translations[currentLang][key];
+                    }
+                }
+            });
+            // Update document language attribute
+            document.documentElement.lang = currentLang;
+        }
+
+        // Toggle language manually
+        function toggleLanguage() {
+            currentLang = currentLang === 'es' ? 'en' : 'es';
+            updateDOM();
+        }
+
+        // Automatic Language Detection on Load
+        function detectLanguage() {
+            const userLang = navigator.language || navigator.userLanguage;
+            // Check if user language starts with 'es' (e.g., es-ES, es-MX)
+            if (userLang && userLang.startsWith('es')) {
+                currentLang = 'es';
+            } else {
+                currentLang = 'en'; // Default to English
+            }
+            updateDOM();
+        }
+
+        /* --- Theme Logic (Light/Dark) --- */
+        const themeBtn = document.getElementById('themeBtn');
+        const htmlElement = document.documentElement;
+        const icon = themeBtn.querySelector('i');
+
+        function toggleTheme() {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            htmlElement.setAttribute('data-theme', newTheme);
+            
+            // Toggle icon class
+            if (newTheme === 'dark') {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+        }
+
+        // Initialize language detection when DOM is ready
+        document.addEventListener('DOMContentLoaded', detectLanguage);
+
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Tenentia Four Java",
+  "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa",
+  "url": "https://tenentia-4j.com",
+  "telephone": "+34917471957",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Calle Julian Camarillo 10",
+    "addressLocality": "Madrid",
+    "postalCode": "28037",
+    "addressCountry": "ES"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 40.4345,
+    "longitude": -3.6305
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+    ],
+    "opens": "09:00",
+    "closes": "18:00"
+  },
+  "sameAs": [
+    "https://github.com/t4j"
+  ],
+  "priceRange": "$$"
+}
+    </script>
+</body>
+</html>
